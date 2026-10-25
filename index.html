@@ -1,0 +1,1902 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apexis Global Dynamics | Enterprise Solutions & Strategy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#f0f7ff",
+                100: "#e0effe",
+                200: "#bae0fd",
+                500: "#0284c7",
+                600: "#0369a1",
+                700: "#075985",
+                800: "#0c4a6e",
+                900: "#082f49",
+                950: "#031926",
+              },
+              accent: {
+                500: "#6366f1",
+                600: "#4f46e5",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom styling for subtle effects */
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .dark .glassmorphism {
+        background: rgba(15, 23, 42, 0.85);
+      }
+      .hero-glow {
+        background: radial-gradient(
+          circle at 50% 20%,
+          rgba(14, 165, 233, 0.15),
+          transparent 60%
+        );
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white"
+  >
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header
+      id="main-header"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glassmorphism border-b border-slate-200/60 shadow-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="#home" class="flex items-center gap-2 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300"
+            >
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors"
+                >APEXIS<span class="text-brand-600">.</span></span
+              >
+              <span
+                class="text-[10px] font-semibold uppercase tracking-widest text-slate-400 -mt-1"
+                >Dynamics</span
+              >
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <a
+              href="#home"
+              class="nav-link px-3.5 py-2 text-sm font-medium text-brand-600 hover:text-brand-700 transition-colors rounded-lg"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors rounded-lg"
+              >About Us</a
+            >
+            <a
+              href="#services"
+              class="nav-link px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors rounded-lg"
+              >Services</a
+            >
+            <a
+              href="#industries"
+              class="nav-link px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors rounded-lg"
+              >Industries</a
+            >
+            <a
+              href="#contact"
+              class="nav-link px-3.5 py-2 text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors rounded-lg"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- CTA & Action Buttons -->
+          <div class="hidden md:flex items-center gap-3">
+            <a
+              href="#contact"
+              class="px-5 py-2.5 text-sm font-semibold text-white bg-slate-900 hover:bg-brand-600 rounded-xl shadow-sm hover:shadow-lg hover:shadow-brand-500/25 transition-all duration-300 flex items-center gap-2"
+            >
+              <span>Schedule Briefing</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle Button -->
+          <div class="flex md:hidden">
+            <button
+              id="mobile-menu-btn"
+              type="button"
+              class="p-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              aria-label="Toggle navigation"
+            >
+              <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+              <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-md px-4 pt-3 pb-6 shadow-xl space-y-2"
+      >
+        <a
+          href="#home"
+          class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-600"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-600"
+          >About Us</a
+        >
+        <a
+          href="#services"
+          class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-600"
+          >Services</a
+        >
+        <a
+          href="#industries"
+          class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-600"
+          >Industries</a
+        >
+        <a
+          href="#contact"
+          class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-brand-600"
+          >Contact</a
+        >
+        <div class="pt-4 border-t border-slate-100">
+          <a
+            href="#contact"
+            class="mobile-nav-link w-full inline-flex justify-center items-center px-5 py-3 text-sm font-semibold text-white bg-slate-900 rounded-xl shadow-md"
+          >
+            Schedule Briefing
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ==================== HERO SECTION (HOME) ==================== -->
+      <section
+        id="home"
+        class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden hero-glow"
+      >
+        <!-- Background Decorative Blobs -->
+        <div
+          class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-brand-200/40 to-indigo-100/40 blur-3xl -z-10 rounded-full pointer-events-none"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
+          >
+            <!-- Hero Copy -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+              <!-- Eyebrow Tag -->
+              <div
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold uppercase tracking-wider"
+              >
+                <span
+                  class="flex h-2 w-2 rounded-full bg-brand-500 animate-ping"
+                ></span>
+                SEO &amp; Bespoke Software Engineering
+              </div>
+
+              <!-- Main Headline -->
+              <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]"
+              >
+                Scale Organic Reach &amp; Build
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-accent-600 to-brand-800"
+                  >Powerful Custom Software.</span
+                >
+              </h1>
+
+              <!-- Subheading -->
+              <p
+                class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
+              >
+                We engineer tailored, high-performance web applications and
+                execute data-driven SEO strategies that capture high-intent
+                search traffic, boost conversions, and accelerate scalable
+                business revenue.
+              </p>
+
+              <!-- CTA Group -->
+              <div
+                class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2"
+              >
+                <a
+                  href="#services"
+                  class="w-full sm:w-auto px-7 py-3.5 text-base font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg shadow-brand-500/25 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  Explore Services
+                  <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+                <a
+                  href="#contact"
+                  class="w-full sm:w-auto px-7 py-3.5 text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 rounded-xl shadow-sm transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i>
+                  Get Free Audit &amp; Proposal
+                </a>
+              </div>
+
+              <!-- Trust Badges & Tech Stack -->
+              <div class="pt-8 border-t border-slate-200/80">
+                <p
+                  class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4 text-center lg:text-left"
+                >
+                  Powering scalable solutions with modern engineering &amp;
+                  search intelligence
+                </p>
+                <div
+                  class="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10 opacity-75 grayscale hover:grayscale-0 transition-all duration-300"
+                >
+                  <span
+                    class="font-bold text-lg text-slate-700 flex items-center gap-1.5"
+                  >
+                    <i data-lucide="search" class="w-5 h-5 text-brand-600"></i>
+                    TECHNICAL SEO
+                  </span>
+                  <span
+                    class="font-bold text-lg text-slate-700 flex items-center gap-1.5"
+                  >
+                    <i data-lucide="code-2" class="w-5 h-5 text-brand-600"></i>
+                    FULL-STACK APPS
+                  </span>
+                  <span
+                    class="font-bold text-lg text-slate-700 flex items-center gap-1.5"
+                  >
+                    <i data-lucide="server" class="w-5 h-5 text-brand-600"></i>
+                    CLOUD ARCHITECTURE
+                  </span>
+                  <span
+                    class="font-bold text-lg text-slate-700 flex items-center gap-1.5"
+                  >
+                    <i
+                      data-lucide="line-chart"
+                      class="w-5 h-5 text-brand-600"
+                    ></i>
+                    GROWTH ANALYTICS
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Graphic / Real-Time Metrics Showcase -->
+            <div class="lg:col-span-5 relative">
+              <div class="relative mx-auto max-w-md lg:max-w-none">
+                <!-- Backdrop Glow Pattern -->
+                <div
+                  class="absolute -inset-4 bg-gradient-to-r from-brand-500 to-accent-500 rounded-3xl blur-2xl opacity-20 -z-10"
+                ></div>
+
+                <!-- Main Feature Card -->
+                <div
+                  class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-2xl relative"
+                >
+                  <div
+                    class="flex items-center justify-between pb-6 border-b border-slate-100"
+                  >
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-100"
+                      ></div>
+                      <span
+                        class="text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                        >Live Client Growth Impact</span
+                      >
+                    </div>
+                    <span
+                      class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full"
+                      >+240% Growth Avg</span
+                    >
+                  </div>
+
+                  <!-- Performance Metrics Bars -->
+                  <div class="py-6 space-y-4">
+                    <!-- Metric 1: SEO -->
+                    <div class="space-y-1.5">
+                      <div class="flex justify-between text-xs font-medium">
+                        <span class="text-slate-600"
+                          >Organic Search Traffic &amp; Top-3 Rankings</span
+                        >
+                        <span class="text-slate-900 font-semibold">+312%</span>
+                      </div>
+                      <div
+                        class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="bg-brand-600 h-full rounded-full"
+                          style="width: 94%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Metric 2: Software Dev -->
+                    <div class="space-y-1.5">
+                      <div class="flex justify-between text-xs font-medium">
+                        <span class="text-slate-600"
+                          >Application Speed &amp; Core Web Vitals</span
+                        >
+                        <span class="text-slate-900 font-semibold"
+                          >99 / 100</span
+                        >
+                      </div>
+                      <div
+                        class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="bg-accent-600 h-full rounded-full"
+                          style="width: 98%"
+                        ></div>
+                      </div>
+                    </div>
+
+                    <!-- Metric 3: Software Reliability -->
+                    <div class="space-y-1.5">
+                      <div class="flex justify-between text-xs font-medium">
+                        <span class="text-slate-600"
+                          >Custom API &amp; Cloud Architecture Uptime</span
+                        >
+                        <span class="text-slate-900 font-semibold">99.98%</span>
+                      </div>
+                      <div
+                        class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"
+                      >
+                        <div
+                          class="bg-emerald-500 h-full rounded-full"
+                          style="width: 99.8%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Value Highlight Box -->
+                  <div
+                    class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4"
+                  >
+                    <div
+                      class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0"
+                    >
+                      <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <h2 class="text-sm font-bold text-slate-900">
+                        Search Domination &amp; Scalable Tech
+                      </h2>
+                      <p class="text-xs text-slate-500">
+                        Engineered clean-code architectures paired with
+                        white-hat, revenue-first SEO campaigns.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Floating Micro-Card -->
+                <div
+                  class="hidden sm:flex absolute -bottom-6 -left-8 bg-slate-900 text-white p-4 rounded-2xl shadow-xl items-center gap-3 animate-float"
+                >
+                  <div
+                    class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center border border-brand-500/30"
+                  >
+                    <i data-lucide="terminal" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-slate-200">
+                      Tailored Stacks &amp; Data Insights
+                    </p>
+                    <p class="text-[11px] text-slate-400">
+                      React, Next.js, Python, Node &amp; Google Core Web Vitals
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ABOUT US SECTION ==================== -->
+      <section id="about" class="py-24 bg-white border-y border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Section Header -->
+          <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+            <span
+              class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200/60"
+            >
+              Who We Are
+            </span>
+            <h2
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight"
+            >
+              Bridging Search Dominance with Custom Software Engineering
+            </h2>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+              We build scalable, high-performance web applications and design
+              data-driven SEO campaigns that transform search visibility into
+              sustainable organic revenue and measurable business growth.
+            </p>
+          </div>
+
+          <!-- Mission, Vision, and Values Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <!-- Card 1: Mission -->
+            <div
+              class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center mb-6 shadow-md shadow-brand-500/20"
+              >
+                <i data-lucide="target" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">Our Mission</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                To engineer resilient, high-speed digital products and execute
+                algorithm-proof SEO frameworks that empower modern brands to
+                outperform competitors and capture qualified market demand.
+              </p>
+            </div>
+
+            <!-- Card 2: Vision -->
+            <div
+              class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-accent-500 text-white flex items-center justify-center mb-6 shadow-md shadow-accent-500/20"
+              >
+                <i data-lucide="compass" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">Our Vision</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                To be the definitive technology and growth partner for ambitious
+                businesses, recognized for clean code standards, flawless
+                technical architecture, and predictable organic pipeline
+                generation.
+              </p>
+            </div>
+
+            <!-- Card 3: Core Values -->
+            <div
+              class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6 shadow-md shadow-slate-900/20"
+              >
+                <i data-lucide="gem" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-3">
+                Core Pillars
+              </h3>
+              <p class="text-slate-600 text-sm leading-relaxed">
+                Clean &amp; maintainable codebases, 100% white-hat search
+                practices, strict Core Web Vitals compliance, and zero vanity
+                metrics—we align every sprint with tangible bottom-line ROI.
+              </p>
+            </div>
+          </div>
+
+          <!-- Metrics & Stats Counter Row -->
+          <div
+            class="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl"
+          >
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-800"
+            >
+              <!-- Metric 1: Software Projects -->
+              <div class="pt-4 md:pt-0">
+                <div
+                  class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-400 font-sans tracking-tight"
+                >
+                  <span class="counter" data-target="140">0</span>+
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+                  Custom Platforms &amp; Apps Delivered
+                </p>
+              </div>
+
+              <!-- Metric 2: Organic Traffic Growth -->
+              <div class="pt-4 md:pt-0">
+                <div
+                  class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent-400 font-sans tracking-tight"
+                >
+                  <span class="counter" data-target="320">0</span>%
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+                  Average Organic Traffic Surge
+                </p>
+              </div>
+
+              <!-- Metric 3: Client Retention -->
+              <div class="pt-4 md:pt-0">
+                <div
+                  class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-400 font-sans tracking-tight"
+                >
+                  <span class="counter" data-target="98">0</span>%
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+                  Long-Term Client Retention
+                </p>
+              </div>
+
+              <!-- Metric 4: Keywords on Page 1 -->
+              <div class="pt-4 md:pt-0">
+                <div
+                  class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-accent-400 font-sans tracking-tight"
+                >
+                  <span class="counter" data-target="25">0</span>K+
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 font-medium">
+                  Keywords Ranked on Page #1
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SERVICES SECTION ==================== -->
+      <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          >
+            <div class="max-w-2xl space-y-3">
+              <span
+                class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200/60"
+              >
+                Services &amp; Capabilities
+              </span>
+              <h2
+                class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight"
+              >
+                Engineered Code Meets Organic Search Dominance
+              </h2>
+              <p class="text-slate-600 text-base">
+                End-to-end bespoke software engineering and white-hat SEO
+                strategies designed to maximize conversions, improve
+                performance, and scale organic pipeline.
+              </p>
+            </div>
+            <div>
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 bg-white px-5 py-2.5 rounded-xl border border-slate-200 shadow-sm transition-all"
+              >
+                <span>Start Your Project</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Service Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1: Custom Web App Development -->
+            <div
+              class="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-brand-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <i data-lucide="code-2" class="w-7 h-7"></i>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors"
+                >
+                  Custom Web &amp; SaaS Development
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  Bespoke web applications and scalable SaaS platforms built
+                  from the ground up with clean architectures, intuitive UI/UX,
+                  and future-proof codebases.
+                </p>
+              </div>
+              <ul
+                class="border-t border-slate-100 pt-5 space-y-2 text-xs font-medium text-slate-500"
+              >
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-500"></i>
+                  React, Next.js, Vue &amp; Node.js
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-500"></i>
+                  Multi-Tenant SaaS Architectures
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-brand-500"></i>
+                  Responsive &amp; Mobile-First Design
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 2: Technical SEO & Core Web Vitals -->
+            <div
+              class="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-accent-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-accent-50 text-accent-600 flex items-center justify-center mb-6 group-hover:bg-accent-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <i data-lucide="gauge" class="w-7 h-7"></i>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3 group-hover:text-accent-600 transition-colors"
+                >
+                  Technical SEO &amp; Performance
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  Deep technical optimization to ensure search engine crawlers
+                  index your site seamlessly while achieving sub-second load
+                  times and green Core Web Vitals.
+                </p>
+              </div>
+              <ul
+                class="border-t border-slate-100 pt-5 space-y-2 text-xs font-medium text-slate-500"
+              >
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
+                  Core Web Vitals &amp; PageSpeed 95+
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
+                  Crawl Budget &amp; Indexation Fixes
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-accent-500"></i>
+                  Schema Markup &amp; Structured Data
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 3: Full-Stack APIs & System Integration -->
+            <div
+              class="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <i data-lucide="cpu" class="w-7 h-7"></i>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors"
+                >
+                  API Engineering &amp; Integrations
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  Robust RESTful and GraphQL APIs, third-party payment/CRM
+                  integrations, and custom database designs built to handle high
+                  throughput securely.
+                </p>
+              </div>
+              <ul
+                class="border-t border-slate-100 pt-5 space-y-2 text-xs font-medium text-slate-500"
+              >
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                  Secure REST &amp; GraphQL Architectures
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                  Payment Gateways &amp; Third-Party APIs
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                  Database Modeling &amp; Optimization
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 4: Keyword Strategy & On-Page SEO -->
+            <div
+              class="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-rose-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mb-6 group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <i data-lucide="search-check" class="w-7 h-7"></i>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3 group-hover:text-rose-600 transition-colors"
+                >
+                  On-Page &amp; Content SEO Strategy
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  In-depth competitor analysis, intent-mapped keyword clusters,
+                  and page-level optimizations that outrank competitors for
+                  transactional search queries.
+                </p>
+              </div>
+              <ul
+                class="border-t border-slate-100 pt-5 space-y-2 text-xs font-medium text-slate-500"
+              >
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-rose-500"></i>
+                  High-Intent Keyword Intelligence
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-rose-500"></i>
+                  Content Architecture &amp; Topic Clusters
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-rose-500"></i>
+                  Conversion-Centric Meta &amp; Copy
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 5: Mobile Apps & Cross-Platform Dev -->
+            <div
+              class="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <i data-lucide="smartphone" class="w-7 h-7"></i>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors"
+                >
+                  Mobile &amp; Cross-Platform Apps
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  Native-feel cross-platform mobile apps built to engage users
+                  on both iOS and Android, backed by unified cloud databases and
+                  smooth UI flows.
+                </p>
+              </div>
+              <ul
+                class="border-t border-slate-100 pt-5 space-y-2 text-xs font-medium text-slate-500"
+              >
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Cross-Platform iOS &amp; Android Apps
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  Offline Storage &amp; Background Sync
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-amber-500"></i>
+                  App Store Deployment &amp; ASO
+                </li>
+              </ul>
+            </div>
+
+            <!-- Card 6: Authority Building & Off-Page SEO -->
+            <div
+              class="group bg-white p-8 rounded-2xl border border-slate-200/80 hover:border-cyan-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center mb-6 group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <i data-lucide="link-2" class="w-7 h-7"></i>
+                </div>
+                <h3
+                  class="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors"
+                >
+                  Domain Authority &amp; Link Building
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  Pure white-hat link acquisition and digital outreach campaigns
+                  that build real editorial backlinks, elevate brand authority,
+                  and solidify top rankings.
+                </p>
+              </div>
+              <ul
+                class="border-t border-slate-100 pt-5 space-y-2 text-xs font-medium text-slate-500"
+              >
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-500"></i>
+                  High-Authority Editorial Backlinks
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-500"></i>
+                  Broken Link &amp; Competitor Gap Reclaim
+                </li>
+                <li class="flex items-center gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-cyan-500"></i>
+                  Transparent Monthly Rank Tracking
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== INDUSTRIES SECTION ==================== -->
+      <section
+        id="industries"
+        class="py-24 bg-white border-y border-slate-200/80"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+            <span
+              class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200/60"
+            >
+              Industries We Empower
+            </span>
+            <h2
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight"
+            >
+              Targeted Solutions for High-Growth Sectors
+            </h2>
+            <p class="text-slate-600 text-base sm:text-lg">
+              We combine vertical-specific search intent analysis with
+              purpose-built software architectures to help market leaders scale
+              customer acquisition and modernize operational workflows.
+            </p>
+          </div>
+
+          <!-- Industry Filter Buttons -->
+          <div
+            class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12"
+            id="industry-filters"
+          >
+            <button
+              data-filter="all"
+              class="industry-tab active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-brand-600 text-white shadow-sm"
+            >
+              All Sectors
+            </button>
+            <button
+              data-filter="saas"
+              class="industry-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200"
+            >
+              SaaS &amp; Tech Startups
+            </button>
+            <button
+              data-filter="ecommerce"
+              class="industry-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200"
+            >
+              E-Commerce &amp; Retail
+            </button>
+            <button
+              data-filter="b2b"
+              class="industry-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200"
+            >
+              B2B &amp; Professional Services
+            </button>
+            <button
+              data-filter="healthtech"
+              class="industry-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-slate-100 text-slate-600 hover:bg-slate-200"
+            >
+              Healthcare &amp; MedTech
+            </button>
+          </div>
+
+          <!-- Industry Cards Grid -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            id="industry-cards-container"
+          >
+            <!-- Card 1: SaaS & Tech -->
+            <div
+              class="industry-card saas bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-blue-100 text-brand-600 flex items-center justify-center mb-5"
+                >
+                  <i data-lucide="boxes" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-semibold text-brand-600 uppercase tracking-wider"
+                >
+                  SaaS &amp; Tech
+                </span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                  Software &amp; Cloud Platforms
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  Product-led SEO frameworks, multi-tenant portal engineering,
+                  API-first integrations, and frictionless self-service customer
+                  onboarding.
+                </p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-100">
+                <span
+                  class="text-[11px] font-bold text-slate-400 block uppercase"
+                >
+                  Case Highlight
+                </span>
+                <p class="text-xs font-semibold text-slate-800 mt-0.5">
+                  Scaled organic signups by 380% and reduced platform onboarding
+                  churn by 42%.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2: E-Commerce -->
+            <div
+              class="industry-card ecommerce bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-5"
+                >
+                  <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-semibold text-emerald-700 uppercase tracking-wider"
+                >
+                  E-Commerce
+                </span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                  Direct-to-Consumer &amp; Retail
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  Headless commerce builds, programmatic category SEO, schema
+                  product markup, and high-speed sub-second checkout funnels.
+                </p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-100">
+                <span
+                  class="text-[11px] font-bold text-slate-400 block uppercase"
+                >
+                  Case Highlight
+                </span>
+                <p class="text-xs font-semibold text-slate-800 mt-0.5">
+                  Ranked 4,200+ product SKUs on Page 1, boosting revenue by
+                  $1.8M in 9 months.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3: B2B & Professional Services -->
+            <div
+              class="industry-card b2b bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5"
+                >
+                  <i data-lucide="briefcase" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-semibold text-amber-700 uppercase tracking-wider"
+                >
+                  B2B Services
+                </span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                  Enterprise &amp; Consulting Firms
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  High-intent commercial keyword targeting, custom internal
+                  ERP/CRM tooling, automated client portals, and inbound lead
+                  pipelines.
+                </p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-100">
+                <span
+                  class="text-[11px] font-bold text-slate-400 block uppercase"
+                >
+                  Case Highlight
+                </span>
+                <p class="text-xs font-semibold text-slate-800 mt-0.5">
+                  Generated a 210% increase in qualified enterprise inbound RFPs
+                  within 6 months.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4: Healthcare & MedTech -->
+            <div
+              class="industry-card healthtech bg-slate-50 border border-slate-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            >
+              <div>
+                <div
+                  class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center mb-5"
+                >
+                  <i data-lucide="shield-plus" class="w-6 h-6"></i>
+                </div>
+                <span
+                  class="text-xs font-semibold text-cyan-700 uppercase tracking-wider"
+                >
+                  HealthTech
+                </span>
+                <h3 class="text-lg font-bold text-slate-900 mt-1 mb-2">
+                  Clinics &amp; Digital Health
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                  HIPAA-compliant web apps, automated patient booking systems,
+                  and authoritative medical SEO (E-E-A-T) for local and national
+                  practices.
+                </p>
+              </div>
+              <div class="p-3 bg-white rounded-xl border border-slate-100">
+                <span
+                  class="text-[11px] font-bold text-slate-400 block uppercase"
+                >
+                  Case Highlight
+                </span>
+                <p class="text-xs font-semibold text-slate-800 mt-0.5">
+                  Achieved #1 local map-pack ranks across 14 locations and
+                  automated 85% of online appointments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FAQ SECTION ==================== -->
+      <section class="py-20 bg-slate-50 border-b border-slate-200/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <span
+              class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200/60"
+            >
+              Frequently Asked Questions
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
+              Project Scopes, Tech Stacks &amp; SEO Deliverables
+            </h2>
+          </div>
+
+          <div class="space-y-4" id="faq-accordion">
+            <!-- FAQ item 1: Timeline -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-colors"
+            >
+              <button
+                class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 focus:outline-none"
+              >
+                <span
+                  >What is the typical timeline for custom software builds vs.
+                  SEO campaigns?</span
+                >
+                <i
+                  data-lucide="chevron-down"
+                  class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3"
+              >
+                Custom software and MVP web applications generally require 4 to
+                12 weeks from sprint planning to deployment, depending on
+                feature complexity and third-party integrations. For SEO,
+                technical crawl fixes and on-page improvements yield measurable
+                indexation signals within 30 to 45 days, while competitive
+                high-volume keyword rankings typically ramp up significantly in
+                months 3 through 6.
+              </div>
+            </div>
+
+            <!-- FAQ item 2: Code Ownership & IP -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-colors"
+            >
+              <button
+                class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 focus:outline-none"
+              >
+                <span
+                  >Who owns the custom software code and digital assets once
+                  completed?</span
+                >
+                <i
+                  data-lucide="chevron-down"
+                  class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3"
+              >
+                You retain 100% intellectual property (IP) and full repository
+                ownership. Upon project delivery, all source code, API keys,
+                documentation, design files, and deployment pipelines are
+                transferred directly to your organization with no vendor lock-in
+                or recurring proprietary licensing fees.
+              </div>
+            </div>
+
+            <!-- FAQ item 3: SEO Guarantees & White-Hat Policy -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-colors"
+            >
+              <button
+                class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 focus:outline-none"
+              >
+                <span
+                  >Can you guarantee #1 rankings on Google, and what practices
+                  do you use?</span
+                >
+                <i
+                  data-lucide="chevron-down"
+                  class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3"
+              >
+                No ethical agency can guarantee an absolute #1 position due to
+                dynamic search algorithm updates. However, we practice strictly
+                100% white-hat, Google-compliant methodologies—leveraging
+                technical Core Web Vitals optimization, clean site architecture,
+                high-intent content clusters, and authoritative digital PR—which
+                consistently secure durable first-page visibility and qualified
+                search conversions.
+              </div>
+            </div>
+
+            <!-- FAQ item 4: Post-Launch Support & Tech Stacks -->
+            <div
+              class="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-colors"
+            >
+              <button
+                class="faq-toggle w-full text-left px-6 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 focus:outline-none"
+              >
+                <span
+                  >Do you provide post-launch maintenance and continuous SEO
+                  optimization?</span
+                >
+                <i
+                  data-lucide="chevron-down"
+                  class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-content hidden px-6 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-3"
+              >
+                Yes. We provide flexible post-launch service-level agreements
+                (SLAs) including 24/7 server monitoring, security patching, API
+                upgrades, and ongoing monthly SEO retainers featuring rank
+                tracking, backlink audits, and ongoing conversion rate
+                optimization (CRO).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT SECTION ==================== -->
+      <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+            <span
+              class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3.5 py-1.5 rounded-full border border-brand-200/60"
+            >
+              Get In Touch
+            </span>
+            <h2
+              class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight"
+            >
+              Let's Build Your Software or Scale Your Organic Traffic
+            </h2>
+            <p class="text-slate-600 text-base sm:text-lg">
+              Have an idea for a web app or need to rank higher on Google? Share
+              your requirements and get a free project audit &amp; estimate
+              within 24 hours.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Contact Details Card (5 cols) -->
+            <div class="lg:col-span-5 space-y-8">
+              <div
+                class="bg-slate-50 border border-slate-200 rounded-3xl p-8 space-y-6"
+              >
+                <h3 class="text-xl font-bold text-slate-900">
+                  Contact Information
+                </h3>
+
+                <div class="space-y-5">
+                  <!-- Office / Location Placeholder -->
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5"
+                    >
+                      <i data-lucide="map-pin" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-semibold text-slate-900">
+                        Location &amp; Office
+                      </h4>
+                      <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                        <!-- Put your address here -->
+                        Lahore, Punjab<br />
+                        Pakistan
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Phone / WhatsApp Placeholder -->
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5"
+                    >
+                      <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-semibold text-slate-900">
+                        Phone &amp; WhatsApp
+                      </h4>
+                      <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                        <!-- Put your phone number here -->
+                        +92 314 1620845<br />
+                        Mon – Fri: 9:00 AM – 6:00 PM
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Email Placeholder -->
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-0.5"
+                    >
+                      <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-semibold text-slate-900">
+                        Email Inquiries
+                      </h4>
+                      <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">
+                        <!-- Put your email here -->
+                        romanijaz31@gmail.com<br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Quick Response / Startup Assurance Box -->
+                <div class="pt-5 border-t border-slate-200">
+                  <div
+                    class="p-4 rounded-2xl bg-white border border-slate-200 flex items-center gap-3.5"
+                  >
+                    <div
+                      class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"
+                    >
+                      <i data-lucide="clock" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-900">
+                        Fast Turnaround
+                      </h4>
+                      <p class="text-[11px] text-slate-500">
+                        Free initial technical scope audit &amp; quote delivered
+                        in under 24 hours.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Contact Form (7 cols) -->
+            <div
+              class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl relative"
+            >
+              <h3 class="text-2xl font-bold text-slate-900 mb-2">
+                Request a Proposal
+              </h3>
+              <p class="text-sm text-slate-600 mb-8">
+                Fill out the brief details below and we will get back to you
+                with an action plan and cost estimate.
+              </p>
+
+              <!-- Success Alert Banner (Hidden by default) -->
+              <div
+                id="form-success-banner"
+                class="hidden mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-start gap-3"
+              >
+                <i
+                  data-lucide="check-circle"
+                  class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"
+                ></i>
+                <div>
+                  <p class="font-bold">Thank you for getting in touch!</p>
+                  <p class="text-xs mt-0.5">
+                    Your inquiry has been received. We will review your project
+                    details and reach out within 24 hours.
+                  </p>
+                </div>
+              </div>
+
+              <form id="contact-form" novalidate class="space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      for="full-name"
+                      class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                      >Full Name *</label
+                    >
+                    <input
+                      type="text"
+                      id="full-name"
+                      name="full-name"
+                      required
+                      placeholder="e.g. John Doe"
+                      class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+                    />
+                    <span class="error-msg text-xs text-rose-500 hidden mt-1"
+                      >Please enter your full name.</span
+                    >
+                  </div>
+
+                  <div>
+                    <label
+                      for="work-email"
+                      class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                      >Email Address *</label
+                    >
+                    <input
+                      type="email"
+                      id="work-email"
+                      name="work-email"
+                      required
+                      placeholder="john@example.com"
+                      class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+                    />
+                    <span class="error-msg text-xs text-rose-500 hidden mt-1"
+                      >Please enter a valid email address.</span
+                    >
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label
+                      for="website-url"
+                      class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                      >Website URL / Company (Optional)</label
+                    >
+                    <input
+                      type="text"
+                      id="website-url"
+                      name="website-url"
+                      placeholder="https://yourwebsite.com"
+                      class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      for="service-interest"
+                      class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                      >Service You Need *</label
+                    >
+                    <select
+                      id="service-interest"
+                      name="service-interest"
+                      class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all bg-white"
+                    >
+                      <option value="custom-software">
+                        Custom Web Application / SaaS
+                      </option>
+                      <option value="technical-seo">
+                        Complete SEO &amp; Organic Growth
+                      </option>
+                      <option value="both">
+                        Both (Custom Development + SEO)
+                      </option>
+                      <option value="website-redesign">
+                        Full Website Redesign &amp; Speed Optimization
+                      </option>
+                      <option value="api-backend">
+                        API Engineering &amp; Integrations
+                      </option>
+                      <option value="consultation">
+                        General Consultation &amp; Audit
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="message"
+                    class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2"
+                    >Project Details &amp; Goals *</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    placeholder="Tell us about what you want to build or achieve (e.g. key features, target keywords, budget range, preferred timeline)..."
+                    class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
+                  ></textarea>
+                  <span class="error-msg text-xs text-rose-500 hidden mt-1"
+                    >Please describe your project requirements (min 10
+                    characters).</span
+                  >
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    id="nda-agree"
+                    class="w-4 h-4 rounded text-brand-600 focus:ring-brand-500 border-slate-300"
+                  />
+                  <label for="nda-agree" class="text-xs text-slate-600"
+                    >I would like a Non-Disclosure Agreement (NDA) before
+                    sharing code/project specifics.</label
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="w-full py-4 px-6 bg-slate-900 hover:bg-brand-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-brand-500/25 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  <span>Send Project Inquiry</span>
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer
+      class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-900"
+        >
+          <!-- Brand Summary (2 cols) -->
+          <div class="lg:col-span-2 space-y-4">
+            <a href="#home" class="flex items-center gap-2">
+              <div
+                class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white"
+              >
+                <i data-lucide="code-2" class="w-5 h-5"></i>
+              </div>
+              <span class="text-lg font-bold tracking-tight text-white"
+                >YOURBRAND<span class="text-brand-500">.</span></span
+              >
+            </a>
+            <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+              Full-stack custom software engineering paired with data-backed SEO
+              strategies to help ambitious startups and scale-ups capture
+              organic traffic and build high-performance products.
+            </p>
+            <div class="flex items-center gap-3 pt-2">
+              <a
+                href="#"
+                class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+                aria-label="LinkedIn"
+              >
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+                aria-label="GitHub"
+              >
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+                aria-label="Twitter / X"
+              >
+                <i data-lucide="twitter" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Navigation -->
+          <div>
+            <h4
+              class="text-xs font-bold text-white uppercase tracking-wider mb-4"
+            >
+              Navigation
+            </h4>
+            <ul class="space-y-2.5 text-xs">
+              <li>
+                <a href="#home" class="hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#industries" class="hover:text-white transition-colors"
+                  >Industries</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-white transition-colors"
+                  >Get a Quote</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Core Capabilities / Services -->
+          <div>
+            <h4
+              class="text-xs font-bold text-white uppercase tracking-wider mb-4"
+            >
+              Services
+            </h4>
+            <ul class="space-y-2.5 text-xs">
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Custom Web &amp; SaaS Dev</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Technical SEO Audits</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Core Web Vitals Optimization</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >API &amp; Backend Engineering</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-white transition-colors"
+                  >Link Building &amp; Authority</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Policies & Client Assurance -->
+          <div>
+            <h4
+              class="text-xs font-bold text-white uppercase tracking-wider mb-4"
+            >
+              Trust &amp; Legal
+            </h4>
+            <ul class="space-y-2.5 text-xs">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >100% Code Ownership</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >White-Hat SEO Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Mutual NDA Guarantee</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Copyright Bar -->
+        <div
+          class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4"
+        >
+          <p>
+            &copy; <span id="current-year"></span> Your Agency Name. All rights
+            reserved. Built for speed and search visibility.
+          </p>
+          <div class="flex items-center gap-6">
+            <span class="flex items-center gap-1.5"
+              ><span
+                class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+              ></span>
+              Available for New Sprints</span
+            >
+            <a href="#home" class="hover:text-slate-300 flex items-center gap-1"
+              >Back to Top <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== LOGIC & INTERACTIONS SCRIPT ==================== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 2. Set Current Year in Footer
+        const yearSpan = document.getElementById("current-year");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // 3. Mobile Menu Toggle
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+        const closeIcon = document.getElementById("close-icon");
+
+        if (mobileBtn && mobileMenu) {
+          mobileBtn.addEventListener("click", () => {
+            const isOpen = !mobileMenu.classList.contains("hidden");
+            if (isOpen) {
+              mobileMenu.classList.add("hidden");
+              menuIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+            } else {
+              mobileMenu.classList.remove("hidden");
+              menuIcon.classList.add("hidden");
+              closeIcon.classList.remove("hidden");
+            }
+          });
+
+          // Close mobile drawer upon link click
+          document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              menuIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+            });
+          });
+        }
+
+        // 4. Active Nav Highlighting on Scroll
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        function updateActiveNav() {
+          const scrollY = window.pageYOffset;
+          sections.forEach((current) => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 120;
+            const sectionId = current.getAttribute("id");
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              navLinks.forEach((link) => {
+                link.classList.remove("text-brand-600", "font-semibold");
+                link.classList.add("text-slate-600");
+                if (link.getAttribute("href") === `#${sectionId}`) {
+                  link.classList.add("text-brand-600", "font-semibold");
+                  link.classList.remove("text-slate-600");
+                }
+              });
+            }
+          });
+        }
+        window.addEventListener("scroll", updateActiveNav);
+
+        // 5. Stat Counter Animation with IntersectionObserver
+        const counters = document.querySelectorAll(".counter");
+        let countersTriggered = false;
+
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !countersTriggered) {
+                countersTriggered = true;
+                counters.forEach((counter) => {
+                  const target = +counter.getAttribute("data-target");
+                  const duration = 1800; // ms
+                  const stepTime = 30;
+                  const steps = duration / stepTime;
+                  const increment = target / steps;
+                  let current = 0;
+
+                  const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                      counter.textContent = target;
+                      clearInterval(timer);
+                    } else {
+                      counter.textContent = Math.ceil(current);
+                    }
+                  }, stepTime);
+                });
+              }
+            });
+          },
+          { threshold: 0.3 },
+        );
+
+        const statsRow = document.querySelector(".counter");
+        if (statsRow) {
+          counterObserver.observe(
+            statsRow.parentElement.parentElement.parentElement,
+          );
+        }
+
+        // 6. Industry Sector Filter Logic
+        const filterTabs = document.querySelectorAll(".industry-tab");
+        const industryCards = document.querySelectorAll(".industry-card");
+
+        filterTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const filter = tab.getAttribute("data-filter");
+
+            filterTabs.forEach((t) => {
+              t.classList.remove("bg-brand-600", "text-white", "shadow-sm");
+              t.classList.add("bg-slate-100", "text-slate-600");
+            });
+            tab.classList.add("bg-brand-600", "text-white", "shadow-sm");
+            tab.classList.remove("bg-slate-100", "text-slate-600");
+
+            industryCards.forEach((card) => {
+              if (filter === "all" || card.classList.contains(filter)) {
+                card.style.display = "flex";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // 7. FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll(".faq-toggle");
+        faqToggles.forEach((toggle) => {
+          toggle.addEventListener("click", () => {
+            const content = toggle.nextElementSibling;
+            const icon = toggle.querySelector(".faq-icon");
+            const isExpanded = !content.classList.contains("hidden");
+
+            // Close all open FAQs for neat accordion behavior
+            document
+              .querySelectorAll(".faq-content")
+              .forEach((c) => c.classList.add("hidden"));
+            document
+              .querySelectorAll(".faq-icon")
+              .forEach((i) => i.classList.remove("rotate-180"));
+
+            if (!isExpanded) {
+              content.classList.remove("hidden");
+              icon.classList.add("rotate-180");
+            }
+          });
+        });
+
+        // 8. Contact Form Validation and Submission Handling
+        const contactForm = document.getElementById("contact-form");
+        const successBanner = document.getElementById("form-success-banner");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            // Validate Full Name
+            const nameInput = document.getElementById("full-name");
+            const nameError = nameInput.nextElementSibling;
+            if (!nameInput.value.trim()) {
+              nameInput.classList.add("border-rose-500");
+              nameError.classList.remove("hidden");
+              isValid = false;
+            } else {
+              nameInput.classList.remove("border-rose-500");
+              nameError.classList.add("hidden");
+            }
+
+            // Validate Email
+            const emailInput = document.getElementById("work-email");
+            const emailError = emailInput.nextElementSibling;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+              emailInput.classList.add("border-rose-500");
+              emailError.classList.remove("hidden");
+              isValid = false;
+            } else {
+              emailInput.classList.remove("border-rose-500");
+              emailError.classList.add("hidden");
+            }
+
+            // Validate Company
+            const companyInput = document.getElementById("company");
+            const companyError = companyInput.nextElementSibling;
+            if (!companyInput.value.trim()) {
+              companyInput.classList.add("border-rose-500");
+              companyError.classList.remove("hidden");
+              isValid = false;
+            } else {
+              companyInput.classList.remove("border-rose-500");
+              companyError.classList.add("hidden");
+            }
+
+            // Validate Message
+            const messageInput = document.getElementById("message");
+            const messageError = messageInput.nextElementSibling;
+            if (messageInput.value.trim().length < 10) {
+              messageInput.classList.add("border-rose-500");
+              messageError.classList.remove("hidden");
+              isValid = false;
+            } else {
+              messageInput.classList.remove("border-rose-500");
+              messageError.classList.add("hidden");
+            }
+
+            // If valid, simulate submission
+            if (isValid) {
+              const submitBtn = document.getElementById("submit-btn");
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = `<span>Securing Dispatch...</span>`;
+
+              setTimeout(() => {
+                contactForm.reset();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<span>Submit Strategic Briefing Request</span><i data-lucide="send" class="w-4 h-4"></i>`;
+                lucide.createIcons();
+                successBanner.classList.remove("hidden");
+                successBanner.scrollIntoView({
+                  behavior: "smooth",
+                  block: "nearest",
+                });
+              }, 800);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
